@@ -1,0 +1,3 @@
+com\sprixin\demo\consumer\controller\DemoConsumerController.class
+com\sprixin\demo\consumer\bootstrap\DubboConsumerDemo.class
+com\sprixin\demo\consumer\controller\UserController.class

@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>com.sprixin</groupId>
+    <artifactId>spic2-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sprixin</groupId>
+  <artifactId>spic2-demo</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+    <module>spic2-demo-api</module>
+    <module>spic2-demo-provider</module>
+    <module>spic2-demo-consumer</module>
+    <module>spic2-demo-mybatis</module>
+    <module>spic2-demo-core</module>
+  </modules>
+
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+                <skip>true</skip>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+</project>

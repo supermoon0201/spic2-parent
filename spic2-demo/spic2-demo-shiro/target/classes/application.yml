@@ -1,0 +1,4 @@
+# 配置shiro
+shiro:
+  sessionManager:
+    sessionIdUrlRewritingEnabled: false
