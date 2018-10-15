@@ -176,7 +176,11 @@
   <select id="listResourceUrlByRoleId" resultType="String" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from sys_resource
-    where id = #{id,jdbcType=BIGINT}
+    FROM
+    	sys_resource re
+    	LEFT JOIN sys_role_resource rr ON re.id = rr.resource_id
+    	LEFT JOIN sys_role ro ON rr.role_id = ro.id 
+    WHERE
+    	ro.id = #{roleId}
   </select>
 </mapper>
