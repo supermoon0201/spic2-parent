@@ -2,109 +2,163 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sprixin.demo.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.sprixin.demo.model.User" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="loginname" property="loginname" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="INTEGER" />
-    <result column="register_date" property="registerDate" jdbcType="TIMESTAMP" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="age" property="age" jdbcType="TINYINT" />
+    <result column="usertype" property="usertype" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="organization_id" property="organizationId" jdbcType="INTEGER" />
+    <result column="createdate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, username, password, nick_name, sex, register_date
+    id, loginname, name, password, sex, age, usertype, status, organization_id, createdate, 
+    phone
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from user
-    where id = #{id,jdbcType=INTEGER}
+    from sys_user
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from user
-    where id = #{id,jdbcType=INTEGER}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.sprixin.demo.model.User" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (username, password, nick_name, 
-      sex, register_date)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=INTEGER}, #{registerDate,jdbcType=TIMESTAMP})
+    insert into sys_user (loginname, name, password, 
+      sex, age, usertype, 
+      status, organization_id, createdate, 
+      phone)
+    values (#{loginname,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=TINYINT}, #{age,jdbcType=TINYINT}, #{usertype,jdbcType=TINYINT}, 
+      #{status,jdbcType=TINYINT}, #{organizationId,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{phone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sprixin.demo.model.User" >
-    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user
+    insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="username != null" >
-        username,
+      <if test="loginname != null" >
+        loginname,
+      </if>
+      <if test="name != null" >
+        name,
       </if>
       <if test="password != null" >
         password,
       </if>
-      <if test="nickName != null" >
-        nick_name,
-      </if>
       <if test="sex != null" >
         sex,
       </if>
-      <if test="registerDate != null" >
-        register_date,
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="usertype != null" >
+        usertype,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="organizationId != null" >
+        organization_id,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="phone != null" >
+        phone,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
+      <if test="loginname != null" >
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="nickName != null" >
-        #{nickName,jdbcType=VARCHAR},
-      </if>
       <if test="sex != null" >
-        #{sex,jdbcType=INTEGER},
+        #{sex,jdbcType=TINYINT},
       </if>
-      <if test="registerDate != null" >
-        #{registerDate,jdbcType=TIMESTAMP},
+      <if test="age != null" >
+        #{age,jdbcType=TINYINT},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="organizationId != null" >
+        #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.sprixin.demo.model.User" >
-    update user
+    update sys_user
     <set >
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
+      <if test="loginname != null" >
+        loginname = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="nickName != null" >
-        nick_name = #{nickName,jdbcType=VARCHAR},
-      </if>
       <if test="sex != null" >
-        sex = #{sex,jdbcType=INTEGER},
+        sex = #{sex,jdbcType=TINYINT},
       </if>
-      <if test="registerDate != null" >
-        register_date = #{registerDate,jdbcType=TIMESTAMP},
+      <if test="age != null" >
+        age = #{age,jdbcType=TINYINT},
+      </if>
+      <if test="usertype != null" >
+        usertype = #{usertype,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="organizationId != null" >
+        organization_id = #{organizationId,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sprixin.demo.model.User" >
-    update user
-    set username = #{username,jdbcType=VARCHAR},
+    update sys_user
+    set loginname = #{loginname,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      nick_name = #{nickName,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      register_date = #{registerDate,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+      sex = #{sex,jdbcType=TINYINT},
+      age = #{age,jdbcType=TINYINT},
+      usertype = #{usertype,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      organization_id = #{organizationId,jdbcType=INTEGER},
+      createdate = #{createdate,jdbcType=TIMESTAMP},
+      phone = #{phone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
-  
-   <select id="findAll" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from user
-  </select>
 </mapper>
