@@ -4,7 +4,6 @@
  */
 package com.sprixin.demo.shiro;
 
-<<<<<<< HEAD
 import com.sprixin.demo.dao.ResourceMapper;
 import com.sprixin.demo.dao.RoleMapper;
 import com.sprixin.demo.model.Role;
@@ -21,30 +20,14 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
-=======
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UnknownAccountException;
->>>>>>> 3cee2f754887ec60e2724d90f53547e42bda6112
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-=======
-
-import com.sprixin.demo.model.User;
-import com.sprixin.demo.service.UserService;
->>>>>>> 3cee2f754887ec60e2724d90f53547e42bda6112
 
 /**
  * 自定义Realm<br/>
@@ -58,13 +41,10 @@ public class ShiroRealm extends AuthorizingRealm {
 
     @Autowired
     private UserService userService;
-<<<<<<< HEAD
     @Autowired
     private RoleMapper roleMapper;
     @Autowired
     private ResourceMapper resourceMapper;
-=======
->>>>>>> 3cee2f754887ec60e2724d90f53547e42bda6112
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -86,7 +66,6 @@ public class ShiroRealm extends AuthorizingRealm {
     }
 
     @Override
-<<<<<<< HEAD
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken)
             throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
@@ -108,16 +87,5 @@ public class ShiroRealm extends AuthorizingRealm {
                 new ShiroUser.Builder().setId(user.getId()).setLoginName(user.getLoginname()).setName(user.getName())
                         .setUsertype(user.getUsertype()).setRoleList(roleIdList).setRoleNameList(roleNameList).build();
         return new SimpleAuthenticationInfo(shiroUser, user.getPassword(), getName());
-=======
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-        UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
-
-        //查询用户信息
-        User user = new User();
-        user.setLoginname(token.getUsername());
-        user = userService.getUser(user);
-        return new SimpleAuthenticationInfo(user, user.getPassword(), getName());
->>>>>>> 3cee2f754887ec60e2724d90f53547e42bda6112
     }
-
 }

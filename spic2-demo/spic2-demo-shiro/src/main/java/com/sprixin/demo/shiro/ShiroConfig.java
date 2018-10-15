@@ -4,10 +4,6 @@
  */
 package com.sprixin.demo.shiro;
 
-<<<<<<< HEAD
-=======
-import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
->>>>>>> 3cee2f754887ec60e2724d90f53547e42bda6112
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
@@ -34,24 +30,16 @@ public class ShiroConfig {
         return new ShiroRealm();
     }
 
-<<<<<<< HEAD
     /**
      * 过滤规则<br/>
      * 
      * @return
      * @author le.yang
      */
-=======
->>>>>>> 3cee2f754887ec60e2724d90f53547e42bda6112
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
         chainDefinition.addPathDefinition("/", "anon");
         return chainDefinition;
     }
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 3cee2f754887ec60e2724d90f53547e42bda6112
 }
