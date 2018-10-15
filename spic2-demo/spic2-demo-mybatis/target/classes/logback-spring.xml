@@ -109,7 +109,7 @@
       <appender-ref ref="SqlOutFileAppender" />
     </logger>
 
-    <root level="INFO">
+    <root level="DEBUG">
       <appender-ref ref="FILEERROR" />
       <appender-ref ref="FILEINFO" />
       <appender-ref ref="FILEWARN" />
