@@ -176,7 +176,7 @@
   <!-- 根据角色id查询资源url集合 -->
   <select id="listResourceUrlByRoleId" resultType="String" parameterType="java.lang.Long" >
     select 
-    <include refid="Base_Column_List" />
+      re.url
     FROM
     	sys_resource re
     	LEFT JOIN sys_role_resource rr ON re.id = rr.resource_id

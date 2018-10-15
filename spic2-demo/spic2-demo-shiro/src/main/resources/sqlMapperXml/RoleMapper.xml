@@ -94,7 +94,7 @@
   <!-- 根据用户id查询角色列表 -->
   <select id="listRoleByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     SELECT
-    <include refid="Base_Column_List" />
+      ro.id AS id, ro.name AS name, ro.seq AS seq, ro.description AS description, ro.status AS status
     FROM
     	sys_role ro
     	LEFT JOIN sys_user_role ur ON ro.id = ur.role_id
