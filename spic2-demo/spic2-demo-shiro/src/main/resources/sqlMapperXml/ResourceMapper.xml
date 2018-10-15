@@ -173,6 +173,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   
+  <!-- 根据角色id查询资源url集合 -->
   <select id="listResourceUrlByRoleId" resultType="String" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
