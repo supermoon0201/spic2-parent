@@ -10,11 +10,12 @@
   <artifactId>spic2-demo</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>spic2-demo-api</module>
-    <module>spic2-demo-provider</module>
-    <module>spic2-demo-consumer</module>
-    <module>spic2-demo-mybatis</module>
+<!--     <module>spic2-demo-api</module> -->
+<!--     <module>spic2-demo-provider</module> -->
+<!--     <module>spic2-demo-consumer</module> -->
+<!--     <module>spic2-demo-mybatis</module> -->
     <module>spic2-demo-core</module>
+    <module>spic2-demo-shiro</module>
   </modules>
 
   <build>

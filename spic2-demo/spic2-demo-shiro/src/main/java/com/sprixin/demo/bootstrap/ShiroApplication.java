@@ -7,14 +7,9 @@
  */
 package com.sprixin.demo.bootstrap;
 
-import org.apache.shiro.realm.Realm;
-import org.apache.shiro.realm.text.TextConfigurationRealm;
-import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
-import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 /**
  * 启动类<br/>
@@ -23,7 +18,7 @@ import org.springframework.context.annotation.Bean;
  * 
  * @author le.yang
  */
-@SpringBootApplication(scanBasePackages = {"com.sprixin.demo"})
+@SpringBootApplication(scanBasePackages = {"com.sprixin"})
 @MapperScan("com.sprixin.demo.dao")
 public class ShiroApplication {
     /**

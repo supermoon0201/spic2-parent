@@ -25,8 +25,8 @@ public class LoginServiceImpl implements LoginService {
     private static Logger logger = LoggerFactory.getLogger(LoginServiceImpl.class);
 
     @Override
-    public Result<?> login(User user) {
-        Result<Object> result = new Result<>();
+    public Result login(User user) {
+        Result result = new Result();
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token =
                 new UsernamePasswordToken(user.getLoginname(), DigestUtils.md5Hex(user.getPassword()));

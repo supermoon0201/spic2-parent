@@ -2,6 +2,8 @@ package com.sprixin.core.model;
 
 import java.io.Serializable;
 
+import org.springframework.http.HttpStatus;
+
 /**
  * 操作结果集<br/>
  * <br/>
@@ -9,60 +11,143 @@ import java.io.Serializable;
  * 
  * @author yaonp
  */
-public class Result<T> implements Serializable {
+public class Result implements Serializable {
+    private static final long serialVersionUID = 5576237395711742681L;
 
-	public static final int SUCCESS = 1;
-	public static final int FAILURE = -1;
+    /** 错误码. */
+    private Integer code;
 
-	private static final long serialVersionUID = 5576237395711742681L;
+    /** 成功失败标志 */
+    private boolean success = false;
 
-	/** 错误码. */
-	private Integer code;
+    /** 消息内容 **/
+    private String msg = "";
 
-	/** 成功失败标志 */
-	private boolean success = false;
+    /** 返回结果 */
+    private Object obj;
 
-	/** 消息内容 **/
-	private String msg = "";
+    public boolean isSuccess() {
+        return success;
+    }
 
-	/** 返回结果 */
-	private T obj;
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 
-	public boolean isSuccess() {
-		return success;
-	}
+    public String getMsg() {
+        return msg;
+    }
 
-	public void setSuccess(boolean success) {
-		this.success = success;
-	}
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 
-	public String getMsg() {
-		return msg;
-	}
+    public Object getObj() {
+        return obj;
+    }
 
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
+    public void setObj(Object obj) {
+        this.obj = obj;
+    }
 
-	public T getObj() {
-		return obj;
-	}
+    public Integer getCode() {
+        return code;
+    }
 
-	public void setObj(T obj) {
-		this.obj = obj;
-	}
+    public void setCode(Integer code) {
+        this.code = code;
+    }
 
-	public Integer getCode() {
-		return code;
-	}
+    @Override
+    public String toString() {
+        return "Result [code=" + code + ", success=" + success + ", msg=" + msg + ", obj=" + obj + "]";
+    }
 
-	public void setCode(Integer code) {
-		this.code = code;
-	}
+    /**
+     * 返回错误码和错误信息<br/>
+     * 
+     * @param code 错误码
+     * @param msg 错误信息
+     * @return Result
+     * @author le.yang
+     */
+    public static Result error(Integer code, String msg) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setMsg(msg);
+        return result;
+    }
 
-	@Override
-	public String toString() {
-		return "Result [code=" + code + ", success=" + success + ", msg=" + msg + ", obj=" + obj + "]";
-	}
+    /**
+     * 返回500错误码，和默认信息<br/>
+     * 
+     * @return Result
+     * @author le.yang
+     */
+    public static Result error() {
+        return error(HttpStatus.INTERNAL_SERVER_ERROR.value(), "未知异常，请联系管理员");
+    }
+
+    /**
+     * 返回错误码500，和自定义错误信息<br/>
+     * 
+     * @param msg 自定义错误信息
+     * @return Result
+     * @author le.yang
+     */
+    public static Result error(String msg) {
+        return error(HttpStatus.INTERNAL_SERVER_ERROR.value(), msg);
+    }
+
+    /**
+     * 返回自定义成功信息和封装数据<br/>
+     * 
+     * @param msg 自定义成功信息
+     * @param obj 封装结果
+     * @return
+     * @author le.yang
+     */
+    public static Result ok(String msg, Object obj) {
+        Result result = new Result();
+        result.setSuccess(true);
+        result.setMsg(msg);
+        result.setObj(obj);
+        return result;
+    }
+
+
+    /**
+     * 返回成功，并封装结果<br/>
+     * 
+     * @param obj 封装结果
+     * @return
+     * @author le.yang
+     */
+    public static Result ok(Object obj) {
+        return ok("", obj);
+    }
+
+    /**
+     * 返回成功信息<br/>
+     * 
+     * @param msg
+     * @return
+     * @author le.yang
+     */
+    public static Result ok(String msg) {
+        return ok(msg, null);
+    }
+
+    /**
+     * 返回成功<br/>
+     * 
+     * @return Result
+     * @author le.yang
+     */
+    public static Result ok() {
+        Result result = new Result();
+        result.setSuccess(true);
+        return result;
+    }
 
 }
