@@ -127,16 +127,6 @@ public class Result implements Serializable {
         return ok("", obj);
     }
 
-    /**
-     * 返回成功信息<br/>
-     * 
-     * @param msg
-     * @return
-     * @author le.yang
-     */
-    public static Result ok(String msg) {
-        return ok(msg, null);
-    }
 
     /**
      * 返回成功<br/>

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sprixin.demo.bootstrap.ShiroApplication;
+import com.sprixin.demo.ShiroApplication;
 import com.sprixin.demo.model.User;
 
 /**

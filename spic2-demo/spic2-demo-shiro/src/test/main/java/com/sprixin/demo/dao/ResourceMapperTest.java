@@ -9,7 +9,7 @@ package com.sprixin.demo.dao;
 
 import static org.junit.Assert.assertNotNull;
 
-import com.sprixin.demo.bootstrap.ShiroApplication;
+import com.sprixin.demo.ShiroApplication;
 
 import java.util.Set;
 

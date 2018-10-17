@@ -5,7 +5,7 @@
  * Date:2018年10月9日下午7:20:47
  * Copyright (c) 2018, SPRIXIN.com All Rights Reserved.
  */
-package com.sprixin.demo.bootstrap;
+package com.sprixin.demo;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
