@@ -25,8 +25,6 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -37,7 +35,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author le.yang
  */
 public class ShiroRealm extends AuthorizingRealm {
-    private static Logger logger = LoggerFactory.getLogger(ShiroRealm.class);
 
     @Autowired
     private UserService userService;
@@ -51,11 +48,11 @@ public class ShiroRealm extends AuthorizingRealm {
         ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
         List<Long> roleList = shiroUser.roleList;
 
-        Set<String> permissionSet = new HashSet<String>();
+        Set<String> permissionSet = new HashSet<>();
         // 遍历循环用户权限
         for (Long roleId : roleList) {
             Set<String> urlSet = resourceMapper.listResourceUrlByRoleId(roleId);
-            if (!CollectionUtils.isNotEmpty(urlSet)) {
+            if (CollectionUtils.isNotEmpty(urlSet)) {
                 permissionSet.addAll(urlSet);
             }
         }
@@ -77,8 +74,8 @@ public class ShiroRealm extends AuthorizingRealm {
         // 查询用户对应的角色列表
         List<Role> roleList = roleMapper.listRoleByUserId(user.getId());
         // 封装角色id列表和角色名称列表
-        List<String> roleNameList = new ArrayList<String>();
-        List<Long> roleIdList = new ArrayList<Long>();
+        List<String> roleNameList = new ArrayList<>();
+        List<Long> roleIdList = new ArrayList<>();
         for (Role role : roleList) {
             roleNameList.add(role.getName());
             roleIdList.add(role.getId());

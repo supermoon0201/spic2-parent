@@ -27,8 +27,9 @@ public class LoginController {
     }
 
     @GetMapping("/forecast/forecast")
-    @RequiresPermissions("/forecast/forecast")
-    public String testPermission() {
-        return "有权限";
+    // @RequiresPermissions中的值要和resource中的url完全一致，否则无法匹配
+    @RequiresPermissions("123/forecast")
+    public Result testPermission() {
+        return Result.ok("有权限");
     }
 }

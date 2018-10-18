@@ -4,8 +4,16 @@
  */
 package com.sprixin.demo.shiro;
 
+import com.sprixin.demo.config.shiro.AjaxPermissionsAuthorizationFilter;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.servlet.Filter;
+
+import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
-import org.apache.shiro.spring.LifecycleBeanPostProcessor;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.springframework.context.annotation.Bean;
@@ -41,11 +49,20 @@ public class ShiroConfig {
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
         chainDefinition.addPathDefinition("/", "anon");
+        chainDefinition.addPathDefinition("/static/**", "anon");
+        chainDefinition.addPathDefinition("/**", "authc");
         return chainDefinition;
     }
 
     @Bean
-    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
-        return new LifecycleBeanPostProcessor();
+    protected ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        // Shiro的核心安全接口,这个属性是必须的
+        shiroFilterFactoryBean.setSecurityManager(securityManager);
+        Map<String, Filter> filterMap = new LinkedHashMap<>();
+        filterMap.put("authc", new AjaxPermissionsAuthorizationFilter());
+        shiroFilterFactoryBean.setFilters(filterMap);
+        return shiroFilterFactoryBean;
     }
+
 }
