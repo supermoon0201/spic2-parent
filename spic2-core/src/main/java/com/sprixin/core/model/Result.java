@@ -100,6 +100,24 @@ public class Result implements Serializable {
     }
 
     /**
+     * 返回自定义成功信息 <br/>
+     * 
+     * @param code 信息码
+     * @param msg 自定义成功信息
+     * @param obj 封装结果
+     * @return
+     * @author le.yang
+     */
+    public static Result ok(Integer code, String msg, Object obj) {
+        Result result = new Result();
+        result.setSuccess(true);
+        result.setCode(code);
+        result.setMsg(msg);
+        result.setObj(obj);
+        return result;
+    }
+
+    /**
      * 返回自定义成功信息和封装数据<br/>
      * 
      * @param msg 自定义成功信息
@@ -108,11 +126,7 @@ public class Result implements Serializable {
      * @author le.yang
      */
     public static Result ok(String msg, Object obj) {
-        Result result = new Result();
-        result.setSuccess(true);
-        result.setMsg(msg);
-        result.setObj(obj);
-        return result;
+        return ok(0, msg, obj);
     }
 
 
