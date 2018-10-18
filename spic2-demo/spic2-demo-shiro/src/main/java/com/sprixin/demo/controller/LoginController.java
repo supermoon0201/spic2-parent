@@ -26,9 +26,14 @@ public class LoginController {
         return loginService.login(user);
     }
 
-    @GetMapping("/forecast/forecast")
+    @GetMapping("/logout")
+    public Result logout() {
+        return loginService.logout();
+    }
+
     // @RequiresPermissions中的值要和resource中的url完全一致，否则无法匹配
-    @RequiresPermissions("123/forecast")
+    @RequiresPermissions("forecast/forecast")
+    @GetMapping("/forecast/forecast")
     public Result testPermission() {
         return Result.ok("有权限");
     }

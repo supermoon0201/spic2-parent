@@ -10,5 +10,20 @@ import com.sprixin.demo.model.User;
  * @date 2018年10月14日
  */
 public interface LoginService {
+    /**
+     * 登录<br/>
+     * 
+     * @param user 用户
+     * @return Result
+     * @author le.yang
+     */
     Result login(User user);
+
+    /**
+     * 退出<br/>
+     * 
+     * @return Result
+     * @author le.yang
+     */
+    Result logout();
 }
