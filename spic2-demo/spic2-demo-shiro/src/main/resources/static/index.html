@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/static/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<button id="login">登录测试</button>
+	<button id="authc">权限测试</button>
+	<button id="logout">退出测试</button>
+	<script type="text/javascript">
+		$(function() {
+			$("#login").click(function() {
+				$.post("/login", {
+					"loginname" : "wpfs",
+					"password" : "wpfs"
+				}, function(data) {
+					alert(JSON.stringify(data));
+				}, "json");
+			});
+			$("#authc").click(function() {
+				$.getJSON("/forecast/forecast", {}, function(data) {
+					alert(JSON.stringify(data));
+				});
+			});
+			$("#logout").click(function() {
+				$.getJSON("/logout", {}, function(data) {
+					alert(JSON.stringify(data));
+				});
+			});
+		})
+	</script>
+</body>
+</html>
