@@ -1,6 +1,0 @@
-com\sprixin\demo\dao\UserMapper.class
-com\sprixin\demo\mybatis\generator\MyCommentGenerator.class
-com\sprixin\demo\mybatis\generator\MybatisGeneratorUtil.class
-com\sprixin\demo\model\User.class
-com\sprixin\demo\service\impl\UserServiceImpl.class
-com\sprixin\demo\bootstrap\DemoMybatisApplication.class
