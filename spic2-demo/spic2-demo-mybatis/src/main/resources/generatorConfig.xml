@@ -43,7 +43,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="author" tableName="sys_user" domainObjectName="User"
+        <table schema="author" tableName="sys_user_token" domainObjectName="UserToken"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableUpdateByExample="false"
@@ -51,22 +51,7 @@
                enableSelectByExample="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table schema="author" tableName="sys_role" domainObjectName="Role"
-               enableCountByExample="false"
-               enableDeleteByExample="false"
-               enableUpdateByExample="false"
-               selectByExampleQueryId="false"
-               enableSelectByExample="false">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table schema="author" tableName="sys_resource" domainObjectName="Resource"
-               enableCountByExample="false"
-               enableDeleteByExample="false"
-               enableUpdateByExample="false"
-               selectByExampleQueryId="false"
-               enableSelectByExample="false">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
+        
     </context>
 </generatorConfiguration>
 

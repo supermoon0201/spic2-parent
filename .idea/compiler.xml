@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spic2-core" />
+        <module name="spic2-demo-api" />
+        <module name="spic2-demo-consumer" />
+        <module name="spic2-demo-core" />
+        <module name="spic2-demo-mybatis" />
+        <module name="spic2-demo-provider" />
+        <module name="spic2-demo-shiro" />
+        <module name="spic2-job" />
+        <module name="spic2-mybatis-plus" />
+        <module name="spring-boot-loader" />
+        <module name="spring-core" />
+        <module name="tomcat" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

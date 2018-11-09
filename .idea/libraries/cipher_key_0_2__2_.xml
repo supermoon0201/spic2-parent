@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cipher-key-0.2 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/spring-boot-loader/src/lib/cipher-key-0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

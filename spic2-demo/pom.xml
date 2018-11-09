@@ -15,5 +15,6 @@
     <module>spic2-demo-mybatis</module>
     <module>spic2-demo-core</module>
     <module>spic2-demo-shiro</module>
+      <module>spic2-mybatis-plus</module>
   </modules>
 </project>

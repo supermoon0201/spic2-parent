@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo/spic2-demo-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo/spic2-demo-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo/spic2-demo-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo/spic2-demo-mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo/spic2-demo-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo/spic2-demo-shiro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-demo/spic2-mybatis-plus" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spic2-job" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-loader" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tomcat" charset="UTF-8" />
+  </component>
+</project>
